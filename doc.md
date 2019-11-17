@@ -11,3 +11,6 @@
   - list players
   - (bootstrap lovin')
 - Separate team view vs team list view
+- Player pics, team logo, ball pic -> public S3 bucket -> use in db init script
+  - /bucketUrl/teamName/playerName
+  - /bucketUrl/team.png etc.
