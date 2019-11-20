@@ -10,8 +10,8 @@ import { Observable } from "rxjs";
 export class TeamsService {
   constructor(private http: HttpClient) {}
 
-  getTeam(teamName: string): Observable<Team> {
+  getAllTeams(): Observable<Team[]> {
     const apiUrl = environment.apiUrl;
-    return this.http.get<Team>(`${apiUrl}/Team/${teamName}`);
+    return this.http.get<Team[]>(`${apiUrl}/Teams`);
   }
 }

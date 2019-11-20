@@ -9,24 +9,24 @@ import { Subscription } from "rxjs";
   styleUrls: ["./list-teams.component.css"]
 })
 export class ListTeamsComponent implements OnInit, OnDestroy {
-  team: Team;
-  getTeamSubscription: Subscription;
+  teams: Team[];
+  getAllTeamsSubscription: Subscription;
 
   constructor(private teamService: TeamsService) {}
 
   ngOnInit() {
-    this.getTeam();
+    this.getAllTeams();
   }
 
-  getTeam() {
-    this.getTeamSubscription = this.teamService
-      .getTeam("Lakers")
-      .subscribe(result => (this.team = result));
+  getAllTeams() {
+    this.getAllTeamsSubscription = this.teamService
+      .getAllTeams()
+      .subscribe(result => (this.teams = result));
   }
 
   ngOnDestroy(): void {
-    if (this.getTeamSubscription) {
-      this.getTeamSubscription.unsubscribe();
+    if (this.getAllTeamsSubscription) {
+      this.getAllTeamsSubscription.unsubscribe();
     }
   }
 }
