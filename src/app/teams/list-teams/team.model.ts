@@ -1,5 +1,5 @@
 export class Team {
-  Name: string;
-  Roster: string[];
-  Pic: string;
+  name: string;
+  roster: string[];
+  pic: string;
 }

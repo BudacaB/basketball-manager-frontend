@@ -1,1 +1,10 @@
-<pre *ngFor="let team of teams">{{ team | json }}</pre>
+<div class="row">
+  <div class="col-sm-6">
+    <img src="{{ teams[0].pic }}" />
+    <h1>{{ teams[0].name }}</h1>
+  </div>
+  <div class="col-sm-6">
+    <img src="{{ teams[1].pic }}" />
+    <h1>{{ teams[1].name }}</h1>
+  </div>
+</div>
