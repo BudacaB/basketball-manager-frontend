@@ -14,7 +14,7 @@ export class ListTeamsComponent implements OnInit, OnDestroy {
 
   constructor(private teamService: TeamsService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAllTeams();
   }
 

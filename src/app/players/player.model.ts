@@ -1,7 +1,7 @@
 export class Player {
   firstName: string;
   lastName: string;
-  position: string;
+  position: PlayerPosition;
   age: number;
   height: number;
   weight: number;
@@ -14,4 +14,12 @@ export class Player {
   team: string;
   playing: boolean;
   pic: string;
+}
+
+export enum PlayerPosition {
+  PG = "Point Guard",
+  SG = "Shooting Guard",
+  SF = "Small Forward",
+  PF = "Power Forward",
+  C = "Center"
 }
