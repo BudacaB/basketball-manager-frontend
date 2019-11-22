@@ -1,0 +1,9 @@
+<div>
+  <img src="{{ team.pic }}" />
+  <h2>{{ team.name }}</h2>
+  <div class="row">
+    <div class="col-sm-12" *ngFor="let player of team.roster">
+      <div>{{ player }}</div>
+    </div>
+  </div>
+</div>

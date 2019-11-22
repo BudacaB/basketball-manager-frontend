@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { Team } from "./list-teams/team.model";
+import { Team } from "./team.model";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -13,5 +13,10 @@ export class TeamsService {
   getAllTeams(): Observable<Team[]> {
     const apiUrl = environment.apiUrl;
     return this.http.get<Team[]>(`${apiUrl}/Teams`);
+  }
+
+  getTeam(teamName: string): Observable<Team> {
+    const apiUrl = environment.apiUrl;
+    return this.http.get<Team>(`${apiUrl}/Team/${teamName}`);
   }
 }

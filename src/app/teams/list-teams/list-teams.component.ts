@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Team } from "./team.model";
+import { Team } from "../team.model";
 import { TeamsService } from "../teams.service";
 import { Subscription } from "rxjs";
 
