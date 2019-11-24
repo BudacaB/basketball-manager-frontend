@@ -13,7 +13,7 @@ export class Player {
   injured: boolean;
   team: string;
   playing: boolean;
-  pic: string;
+  photoURL: string;
 }
 
 export enum PlayerPosition {

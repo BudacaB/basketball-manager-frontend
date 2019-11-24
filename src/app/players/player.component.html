@@ -1,4 +1,87 @@
 <div *ngIf="player">
-  <img src="{{ player.pic }}" />
+  <h3>Position: {{ player.position }}</h3>
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
+      <h3 *ngIf="player.playing; else notPlaying">
+        Playing:<span class="badge badge-pill badge-success"> Yes</span>
+      </h3>
+      <ng-template #notPlaying>
+        <h3>Playing:<span class="badge badge-pill badge-danger"> No</span></h3>
+      </ng-template>
+    </div>
+    <div class="col-sm-4">
+      <img src="{{ player.photoURL }}" />
+    </div>
+    <div class="col-sm-4">
+      <h3 *ngIf="player.injured; else healthy">
+        Injured:<span class="badge badge-pill badge-danger"> Yes</span>
+      </h3>
+      <ng-template #healthy>
+        <h3>
+          Injured:<span class="badge badge-pill badge-success"> No</span>
+        </h3></ng-template
+      >
+    </div>
+  </div>
   <h2>{{ player.firstName }} {{ player.lastName }}</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>Height: {{ player.height }} ft</h5>
+    </div>
+    <div class="col-sm-4">
+      <h3>Age: {{ player.age }}</h3>
+    </div>
+    <div class="col-sm-4">
+      <h5>Weight: {{ player.weight }} lbs</h5>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>
+        Speed:
+        <span
+          [ngClass]="{
+            'badge badge-pill badge-success': player.speed >= 91,
+            'badge badge-pill badge-warning': 91 > player.speed,
+            'badge badge-pill badge-danger': 80 >= player.speed
+          }"
+        >
+          {{ player.speed }}
+        </span>
+      </h5>
+    </div>
+    <div class="col-sm-4">
+      <h5>
+        Stamina:
+        <span
+          [ngClass]="{
+            'badge badge-pill badge-success': player.stamina >= 91,
+            'badge badge-pill badge-warning': 91 > player.stamina,
+            'badge badge-pill badge-danger': 80 >= player.stamina
+          }"
+        >
+          {{ player.stamina }}
+        </span>
+      </h5>
+    </div>
+    <div class="col-sm-4">
+      <h5>
+        Strength:
+        <span
+          [ngClass]="{
+            'badge badge-pill badge-success': player.strength >= 91,
+            'badge badge-pill badge-warning': 91 > player.strength,
+            'badge badge-pill badge-danger': 80 >= player.strength
+          }"
+        >
+          {{ player.strength }}
+        </span>
+      </h5>
+    </div>
+  </div>
+  <br />
+  <h5>College: {{ player.college }}</h5>
+  <h5>Salary: {{ player.salary | currency: "USD":"symbol":"1.0-0" }}</h5>
 </div>
