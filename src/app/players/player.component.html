@@ -42,10 +42,11 @@
       <h5>
         Speed:
         <span
+          class="badge badge-pill"
           [ngClass]="{
-            'badge badge-pill badge-success': player.speed >= 91,
-            'badge badge-pill badge-warning': 91 > player.speed,
-            'badge badge-pill badge-danger': 80 >= player.speed
+            'badge-danger': player.speed <= 80,
+            'badge-warning': 90 >= player.speed && player.speed >= 81,
+            'badge-success': player.speed >= 91
           }"
         >
           {{ player.speed }}
@@ -56,10 +57,11 @@
       <h5>
         Stamina:
         <span
+          class="badge badge-pill"
           [ngClass]="{
-            'badge badge-pill badge-success': player.stamina >= 91,
-            'badge badge-pill badge-warning': 91 > player.stamina,
-            'badge badge-pill badge-danger': 80 >= player.stamina
+            'badge-danger': player.stamina <= 80,
+            'badge-warning': 90 >= player.stamina && player.stamina >= 81,
+            'badge-success': player.stamina >= 91
           }"
         >
           {{ player.stamina }}
@@ -70,10 +72,11 @@
       <h5>
         Strength:
         <span
+          class="badge badge-pill"
           [ngClass]="{
-            'badge badge-pill badge-success': player.strength >= 91,
-            'badge badge-pill badge-warning': 91 > player.strength,
-            'badge badge-pill badge-danger': 80 >= player.strength
+            'badge-danger': player.strength <= 80,
+            'badge-warning': 90 >= player.strength && player.strength >= 81,
+            'badge-success': player.strength >= 91
           }"
         >
           {{ player.strength }}
