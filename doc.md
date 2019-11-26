@@ -26,3 +26,33 @@
   - between 81 and 90 orange
   - between 91 and 100 green
 - make bootstrap navbar - use ball png as navbar logo
+
+---
+
+- nice to have: add collections to db script, either separate method or add...then add docs
+- functionalities:
+  - start game
+    - endpoint - receives the game name and selected team as arguments
+    - make collection gameState - stores game data like game name, selected team
+
+---
+
+FE:
+
+- new component for game setup - game-starter
+- render in home within the team list
+- 2 props:
+  - selectedTeam (by way of input from parent team list)
+    https://angular.io/guide/component-interaction
+  - gameName (as text field)
+- start game button - disabled unless both props provided -> calls function 'startGame'
+- component takes the 2 props - makes new obj - sends to api from new service - gameService - calls api with HTTP POST
+- also make game-component
+  - after BE confirms OK for game start (observable result) -> redirect to game-component
+
+BE:
+
+- make new controller - game controller / game service
+- make game model - json obj - game name, team, creation date/time (of server, not FE)
+- uses mongo db - collection gameState
+- write new entry with game data
