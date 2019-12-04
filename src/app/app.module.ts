@@ -10,6 +10,7 @@ import { HomeComponent } from "./home/home.component";
 import { TeamComponent } from "./teams/team-detail/team.component";
 import { PlayerComponent } from "./players/player.component";
 import { PlayersService } from "./players/players.service";
+import { GameStarterComponent } from './game-starter/game-starter.component';
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     ListTeamsComponent,
     HomeComponent,
     TeamComponent,
-    PlayerComponent
+    PlayerComponent,
+    GameStarterComponent
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
   providers: [TeamsService, PlayersService],
