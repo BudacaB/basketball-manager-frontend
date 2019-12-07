@@ -41,14 +41,14 @@ FE:
 
 - new component for game setup - game-starter
 - render in home within the team list
+- install NgRx
 - 2 props:
   - selectedTeam (by way of input from parent team list)
     https://angular.io/guide/component-interaction
   - gameName (as text field)
-- start game button - disabled unless both props provided -> calls function 'startGame'
-- component takes the 2 props - makes new obj - sends to api from new service - gameService - calls api with HTTP POST
-- also make game-component
-  - after BE confirms OK for game start (observable result) -> redirect to game-component
+- start game button -> calls function 'startGame'
+- component takes the 2 props - makes new game obj
+- save this obj in NgRx store locally
 
 BE:
 
@@ -56,3 +56,7 @@ BE:
 - make game model - json obj - game name, team, creation date/time (of server, not FE)
 - uses mongo db - collection gameState
 - write new entry with game data
+- model classes -> change names to blablaModel
+- ReceivedGame -> GameViewModel
+- For DB -> GameDataModel
+- StartGame endpoint -> GameState endpoint
