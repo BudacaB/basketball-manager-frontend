@@ -11,11 +11,16 @@ import { Subscription } from "rxjs";
 export class ListTeamsComponent implements OnInit, OnDestroy {
   teams: Team[];
   getAllTeamsSubscription: Subscription;
+  selectedTeam: string;
 
   constructor(private teamService: TeamsService) {}
 
   ngOnInit(): void {
     this.getAllTeams();
+  }
+
+  selectTeam(event: any) {
+    this.selectedTeam = event.value;
   }
 
   getAllTeams() {

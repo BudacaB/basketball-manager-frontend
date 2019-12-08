@@ -1,9 +1,28 @@
 <div class="row">
   <div class="col-sm-6" *ngFor="let team of teams">
     <a [title]="team.name + ' details'" [routerLink]="['/team', team.name]">
-      <img src="{{ team.photoURL }}" />
       <h1>{{ team.name }}</h1>
+      <img src="{{ team.photoURL }}" />
     </a>
+    <br /><br />
+    <form>
+      <h5>Select</h5>
+      <button
+        #select
+        (click)="selectTeam(select)"
+        value="{{ team.name }}"
+        type="submit"
+        class="btn btn-info"
+      >
+        {{ team.name }}
+      </button>
+    </form>
   </div>
-  <app-game-starter></app-game-starter>
+</div>
+<br />
+<br />
+<div class="row align-items-center">
+  <div class="col-sm-12">
+    <app-game-starter [selectedTeam]="selectedTeam"></app-game-starter>
+  </div>
 </div>

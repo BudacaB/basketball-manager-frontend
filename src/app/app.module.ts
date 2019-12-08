@@ -2,6 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
 
 import { AppComponent } from "./app.component";
 import { ListTeamsComponent } from "./teams/list-teams/list-teams.component";
@@ -10,7 +12,7 @@ import { HomeComponent } from "./home/home.component";
 import { TeamComponent } from "./teams/team-detail/team.component";
 import { PlayerComponent } from "./players/player.component";
 import { PlayersService } from "./players/players.service";
-import { GameStarterComponent } from './game-starter/game-starter.component';
+import { GameStarterComponent } from "./game-starter/game-starter.component";
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
@@ -29,7 +31,12 @@ const appRoutes: Routes = [
     PlayerComponent,
     GameStarterComponent
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
+  ],
   providers: [TeamsService, PlayersService],
   bootstrap: [AppComponent]
 })

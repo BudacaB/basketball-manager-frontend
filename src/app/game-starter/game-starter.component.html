@@ -1,1 +1,17 @@
-<p>game-starter works!</p>
+<div>
+  <h5>Game name:</h5>
+  <h6>{{ gameName }}</h6>
+  <input (keyup)="onKey($event)" />
+  <br /><br />
+  <h5>Selected team:</h5>
+  <h6>{{ selectedTeam }}</h6>
+  <br />
+  <button
+    (click)="startGame()"
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!gameName || !selectedTeam"
+  >
+    Start game
+  </button>
+</div>
