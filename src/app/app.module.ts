@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { StoreModule } from "@ngrx/store";
+import { gameReducer } from "./game-starter/game-starter.reducer";
 
 import { AppComponent } from "./app.component";
 import { ListTeamsComponent } from "./teams/list-teams/list-teams.component";
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(gameReducer)
   ],
   providers: [TeamsService, PlayersService],
   bootstrap: [AppComponent]
