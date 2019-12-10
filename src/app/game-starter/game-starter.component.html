@@ -14,5 +14,12 @@
   >
     Start game
   </button>
-  <div>Current Game: {{ createdGame$ | async }}</div>
+  <div *ngIf="stateGameName">
+    Current Game: <br />
+    Name:
+    <span>{{ stateGameName }}</span
+    ><br />
+    Team:
+    <span>{{ stateTeamName }}</span>
+  </div>
 </div>

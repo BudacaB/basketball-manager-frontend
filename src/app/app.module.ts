@@ -4,7 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { StoreModule } from "@ngrx/store";
-import { gameReducer } from "./game-starter/game-starter.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 import { AppComponent } from "./app.component";
 import { ListTeamsComponent } from "./teams/list-teams/list-teams.component";
@@ -14,6 +15,8 @@ import { TeamComponent } from "./teams/team-detail/team.component";
 import { PlayerComponent } from "./players/player.component";
 import { PlayersService } from "./players/players.service";
 import { GameStarterComponent } from "./game-starter/game-starter.component";
+import { appReducers } from "./store/reducers/app.reducers";
+import { environment } from "../environments/environment";
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
@@ -37,7 +40,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    StoreModule.forRoot(gameReducer)
+    StoreModule.forRoot(appReducers),
+    StoreRouterConnectingModule.forRoot({ stateKey: "router" }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [TeamsService, PlayersService],
   bootstrap: [AppComponent]

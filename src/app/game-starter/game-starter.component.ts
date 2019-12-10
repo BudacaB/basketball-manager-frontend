@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
-import { createGame } from "./game-starter.actions";
-import { GameState } from "./game-starter.reducer";
+import { IAppState } from "../store/state/app.state";
+import { CreateGame } from "../store/actions/game.actions";
+import { selectGame } from "../store/selectors/game.selectors";
 
 @Component({
   selector: "app-game-starter",
@@ -10,13 +10,14 @@ import { GameState } from "./game-starter.reducer";
   styleUrls: ["./game-starter.component.css"]
 })
 export class GameStarterComponent implements OnInit {
-  createdGame$: Observable<GameState>;
+  game$ = this._store.pipe(select(selectGame));
   gameName: string;
   @Input() selectedTeam: string;
+  stateGameName: string;
+  stateTeamName: string;
 
-  constructor(private store: Store<{ createdGame: GameState }>) {
-    this.createdGame$ = store.pipe(select("createdGame"));
-  }
+  // tslint:disable-next-line: variable-name
+  constructor(private _store: Store<IAppState>) {}
 
   onKey(event: any) {
     this.gameName = event.target.value;
@@ -27,8 +28,12 @@ export class GameStarterComponent implements OnInit {
       gameName: this.gameName,
       teamName: this.selectedTeam
     };
-    this.store.dispatch(createGame({ game }));
-    console.log(this.createdGame$);
+    this._store.dispatch(new CreateGame(game));
+
+    this.game$.subscribe(result => {
+      this.stateGameName = result.gameName;
+      this.stateTeamName = result.teamName;
+    });
   }
 
   ngOnInit() {}
