@@ -14,12 +14,16 @@
   >
     Start game
   </button>
-  <div *ngIf="stateGameName">
+  <button routerLink="/list-games" class="btn btn-primary">
+    View games
+  </button>
+
+  <div *ngIf="stateGame">
     Current Game: <br />
     Name:
-    <span>{{ stateGameName }}</span
+    <span>{{ stateGame.name }}</span
     ><br />
     Team:
-    <span>{{ stateTeamName }}</span>
+    <span>{{ stateGame.team }}</span>
   </div>
 </div>

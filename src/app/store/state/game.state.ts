@@ -1,6 +1,6 @@
 export interface IGame {
-  gameName: string;
-  teamName: string;
+  name: string;
+  team: string;
 }
 
 export interface IGameState {

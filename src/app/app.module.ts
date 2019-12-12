@@ -14,15 +14,17 @@ import { HomeComponent } from "./home/home.component";
 import { TeamComponent } from "./teams/team-detail/team.component";
 import { PlayerComponent } from "./players/player.component";
 import { PlayersService } from "./players/players.service";
-import { GameStarterComponent } from "./game-starter/game-starter.component";
+import { GameStarterComponent } from "./games/game-starter/game-starter.component";
 import { appReducers } from "./store/reducers/app.reducers";
 import { environment } from "../environments/environment";
+import { ListGamesComponent } from "./games/list-games/list-games.component";
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "team/:teamName", component: TeamComponent },
   { path: "player/:playerName", component: PlayerComponent },
+  { path: "list-games", component: ListGamesComponent },
   { path: "**", component: HomeComponent }
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     HomeComponent,
     TeamComponent,
     PlayerComponent,
-    GameStarterComponent
+    GameStarterComponent,
+    ListGamesComponent
   ],
   imports: [
     BrowserModule,
