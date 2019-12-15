@@ -60,3 +60,4 @@ BE:
 - ReceivedGame -> GameViewModel
 - For DB -> GameDataModel
 - StartGame endpoint -> GameState endpoint
+- PostgreSQL for the game state
