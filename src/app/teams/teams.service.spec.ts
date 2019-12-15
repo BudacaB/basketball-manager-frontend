@@ -1,12 +1,16 @@
 import { TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { TeamsService } from "./teams.service";
 
-import { TeamsServiceService } from "./teams.service";
-
-describe("TeamsServiceService", () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe("TeamsService", () => {
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    })
+  );
 
   it("should be created", () => {
-    const service: TeamsServiceService = TestBed.get(TeamsServiceService);
+    const service: TeamsService = TestBed.get(TeamsService);
     expect(service).toBeTruthy();
   });
 });

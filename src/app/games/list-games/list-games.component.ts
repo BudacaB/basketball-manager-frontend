@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { GamesService } from "../games.service";
 import { IGame } from "../../store/state/game.state";
 import { Subscription } from "rxjs";
@@ -8,11 +8,15 @@ import { Subscription } from "rxjs";
   templateUrl: "./list-games.component.html",
   styleUrls: ["./list-games.component.css"]
 })
-export class ListGamesComponent implements OnInit {
+export class ListGamesComponent implements OnInit, OnDestroy {
   games: IGame[];
   getAllGamesSubscription: Subscription;
 
   constructor(private gamesService: GamesService) {}
+
+  ngOnInit() {
+    this.getAllGames();
+  }
 
   getAllGames() {
     this.getAllGamesSubscription = this.gamesService
@@ -20,7 +24,9 @@ export class ListGamesComponent implements OnInit {
       .subscribe(result => (this.games = result));
   }
 
-  ngOnInit() {
-    this.getAllGames();
+  ngOnDestroy() {
+    if (this.getAllGamesSubscription) {
+      this.getAllGamesSubscription.unsubscribe();
+    }
   }
 }

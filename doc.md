@@ -49,6 +49,7 @@ FE:
 - start game button -> calls function 'startGame'
 - component takes the 2 props - makes new game obj
 - save this obj in NgRx store locally
+- write test that guarantees that when getAllGames() is called, it calls the method from the API - https://angular.io/guide/testing - Testbed.get
 
 BE:
 
