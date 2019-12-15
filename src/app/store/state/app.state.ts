@@ -9,7 +9,3 @@ export interface IAppState {
 export const initialAppState: IAppState = {
   game: initialGameState
 };
-
-export function getInitialState(): IAppState {
-  return initialAppState;
-}

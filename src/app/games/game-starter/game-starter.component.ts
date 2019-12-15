@@ -27,9 +27,7 @@ export class GameStarterComponent implements OnInit {
   }
 
   postGame() {
-    return this.gamesService
-      .postGame(this.stateGame)
-      .subscribe(result => console.log(result));
+    return this.gamesService.postGame(this.stateGame).subscribe();
   }
 
   startGame() {
@@ -38,14 +36,7 @@ export class GameStarterComponent implements OnInit {
       team: this.selectedTeam
     };
     this._store.dispatch(new CreateGame(game));
-
-    this.game$.subscribe(result => {
-      this.stateGame = {
-        name: result.name,
-        team: result.team
-      };
-    });
-    console.log(this.stateGame);
+    this.game$.subscribe(result => (this.stateGame = result));
     this.postGame();
   }
 
