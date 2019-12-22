@@ -39,6 +39,8 @@ describe("when nagivating to a player", () => {
   }));
 
   it("should get the player name", () => {
-    expect(document.getElementById("name")).toContain(selectedPlayer.lastName);
+    expect(document.getElementById("name").textContent).toContain(
+      selectedPlayer.lastName
+    );
   });
 });
