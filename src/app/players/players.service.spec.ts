@@ -1,11 +1,13 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { PlayersService } from "./players.service";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-import { PlayersService } from './players.service';
+describe("PlayersService", () => {
+  beforeEach(() =>
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] })
+  );
 
-describe('PlayersService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
-
-  it('should be created', () => {
+  it("should be created", () => {
     const service: PlayersService = TestBed.get(PlayersService);
     expect(service).toBeTruthy();
   });
