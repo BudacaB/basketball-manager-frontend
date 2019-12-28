@@ -18,6 +18,7 @@ import { GameStarterComponent } from "./games/game-starter/game-starter.componen
 import { appReducers } from "./store/reducers/app.reducers";
 import { environment } from "../environments/environment";
 import { ListGamesComponent } from "./games/list-games/list-games.component";
+import { RouterTestingModule } from "@angular/router/testing";
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    RouterTestingModule,
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot({ stateKey: "router" }),
     !environment.production ? StoreDevtoolsModule.instrument() : []

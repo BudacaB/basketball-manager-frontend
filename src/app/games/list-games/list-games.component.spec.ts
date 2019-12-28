@@ -16,7 +16,7 @@ describe("ListGamesComponent", () => {
       declarations: [ListGamesComponent],
       providers: [
         { provide: GamesService, useValue: mockGameService.Object }
-        //GamesService
+        // GamesService
       ]
     }).compileComponents();
   }));
