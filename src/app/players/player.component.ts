@@ -11,7 +11,7 @@ import { Subscription } from "rxjs";
 })
 export class PlayerComponent implements OnInit, OnDestroy {
   player: Player;
-  playerLastName: string;
+  playerLastName = "";
   getPlayerSubscription: Subscription;
 
   constructor(
