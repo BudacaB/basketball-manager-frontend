@@ -36,4 +36,10 @@ describe("ListGamesComponent", () => {
     component.ngOnInit();
     expect(spyOnGetGames).toHaveBeenCalled();
   });
+
+  it("should call getAllGames with the API", () => {
+    const service: GamesService = TestBed.get(GamesService);
+    spyOn(component, "getAllGames").and.callThrough();
+    expect(service.getGames).toHaveBeenCalled();
+  });
 });
